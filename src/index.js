@@ -2,7 +2,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const componentsPath = './components/';
+//tried to use template literal to dynamically set the path (so it's DRY)
+//failed because import needs a string literal & cannot be dynamic
+//const componentsPath = './components/';
 
 import SearchBar from './components/search_bar';
 
