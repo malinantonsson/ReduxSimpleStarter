@@ -7,6 +7,7 @@ import YTSearch from 'youtube-api-search'
 //failed because import needs a string literal & cannot be dynamic
 //const componentsPath = './components/';
 import SearchBar from './components/search_bar';
+import VideoList from './components/video_list';
 
 //Youtube API key
 const API_KEY = 'AIzaSyCIZSpV4OHPehNRI8xARiQjWXIeLGedFNc';
@@ -30,6 +31,7 @@ class App extends Component {
 		return (
 			<div>
 				<SearchBar />
+				<VideoList videos={this.state.videos} />
 			</div>
 		);
 	}
