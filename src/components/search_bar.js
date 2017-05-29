@@ -13,13 +13,15 @@ class SearchBar extends Component {
 
 		//initialize the state
 		//we want to record the property term.
-		this.state = { term: '' };
+		this.state = { term: 'Search' };
 	}
 
 	render() {
 		return (
 			<div>
-				<input onChange={event => this.setState({ term: event.target.value })} />
+				<input 
+					value={this.state.term}
+					onChange={event => this.setState({ term: event.target.value })} />
 			</div>
 		);
 	}
