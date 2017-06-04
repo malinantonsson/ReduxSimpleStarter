@@ -11,8 +11,9 @@ class PostsNew extends Component {
 					className="form-control"
 					{...field.input}
 				/>
+				{field.meta.error}
 			</div>
-		)
+		);
 	}
 
 	render() {
