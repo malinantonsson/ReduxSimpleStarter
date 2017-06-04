@@ -24,8 +24,8 @@ class PostsNew extends Component {
 					component={this.renderField}
 				/>
 				<Field 
-					label="Tags"
-					name="tags"
+					label="Categories"
+					name="categories"
 					component={this.renderField}
 				/>
 
@@ -40,8 +40,32 @@ class PostsNew extends Component {
 	}
 }
 
+//validate the form & add it to the reduxForm helper as an option called validate
+function validate(values) {
+	const errors = {};
+
+	//Validate the pinpit from the 'values' object
+	if(!values.title) {
+		errors.title = "Enter a title!";
+	}
+
+	if(!values.categories) {
+		errors.categories = "Enter a categories!";
+	}
+
+	if(!values.content) {
+		errors.content = "Enter a content!";
+	}
+
+
+	//if errors is empty the form is valid, go and submit.
+	//otherwise it faild validation
+	return errors;
+}
+
 //kind of like the Connect
 //makes it communicate directly to the reducer
 export default reduxForm({
+	validate,
 	form: 'PostsNewForm'
 })(PostsNew);
