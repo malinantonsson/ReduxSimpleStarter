@@ -7,29 +7,23 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import promise from 'redux-promise';
 
-import App from './components/app';
+//we dont have a central app anymore
+//import App from './components/app';
 import reducers from './reducers';
+import PostIndex from './components/post_index';
 
 
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
-
-class Hello extends Component {
-	render() { return <div> Hello!</div> }
-}
-
-class Goodbye extends Component {
-	render() { return <div> Goodbye!</div> } 
-}
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     
     <Router>
     	<div>
-	    	<Route path="/hello" component={Hello} />
-	    	<Route path="/goodbye" component={Goodbye} />
+    		<Route path="/" component={PostIndex} />
     	</div>
     </Router>
 
